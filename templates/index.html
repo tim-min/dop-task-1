@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="static/js/carousel.js"></script>
+    <title>Колонизация</title>
+    </head>
+    <body>
+    <div align="center">
+    <h2>Пейзажи Марса</h2>
+    </div>
+    <br>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        {% for picture in pictures %}
+        {% if loop.first %}
+        <div class="carousel-item active" align="center" style="background-color: black;">
+            <img class="d-block w-50" src="{{picture}}" alt="Mars Picture">
+        </div>
+        {% else %}
+        <div class="carousel-item" align="center" style="background-color: black;">
+            <img class="d-block w-50" src="{{picture}}" alt="Mars Picture">
+        </div>
+        {% endif%}
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+    <br>
+    <form class="login_form" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.file }}
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+    </body>
+</html>
